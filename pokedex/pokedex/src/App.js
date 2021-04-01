@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom'
 import './CSS/App.css';
 import PokemonList from './Components/PokemonList'
 import PokemonDetails from './Components/PokemonDetails'
+import getPokemonId from './utils/GetPokemonId.js'
 
 //[ DONE ] Home page (list all pokemon first 150 w/ picture)
 //[ ] Click on Pokemon to view additional info path is /pokemon/bulbasaur/ goes to abilities
@@ -18,18 +19,14 @@ import PokemonDetails from './Components/PokemonDetails'
 
 
 const initialState ={
-  pokemon: null,
-  currentPokemon: {
-    id: 0,
-    abilities: [],
-    environment: [],  
-  }
+  pokemonList: null,
+  currentPokemon: 0
 };
 
 function reducer(state, action){
   switch(action.type){
     case 'load':
-      return {...state, pokemon: action.payload}
+      return {...state, pokemonList: action.payload}
     default: 
       return state;
   }
@@ -57,10 +54,19 @@ function App() {
       <main>
         <Switch>
           <Route exact path="/">
-            {!state.pokemon && "Loading..."}
-            {state.pokemon && <PokemonList pokemon={state.pokemon} />}
+            {!state.pokemonList && "Loading..."}
+            {state.pokemonList && <PokemonList pokemon={state.pokemonList} />}
           </Route>
-          <Route path="/pokemon/:id" component={({match})=><PokemonDetails match={match} />}>
+          <Route 
+            path="/pokemon/:id" 
+            component={
+              ({match})=>(
+                <PokemonDetails 
+                  match={match} 
+                  pokemon={state.pokemonList.find((poke)=>getPokemonId(poke.url) === match.params.id)}
+                />
+              )
+            }>
             
           </Route>
         </Switch>

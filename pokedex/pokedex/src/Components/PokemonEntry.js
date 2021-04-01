@@ -1,5 +1,6 @@
 import '../CSS/PokemonEntry.css'
 import { Link } from 'react-router-dom'
+import getPokemonId from '../utils/GetPokemonId.js'
 
 function PokemonEntry({pokemon}){
     const pokemonName = pokemon.name.slice(0,1).toUpperCase() + pokemon.name.slice(1);
@@ -8,7 +9,7 @@ function PokemonEntry({pokemon}){
         <Link to={`/pokemon/${pokeId}`}>
             <div className="pokemonEntry">  
                 <div className="pokemon">{pokemonName} <br/>
-                <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokeId}.png`}></img></div>       
+                <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokeId}.png`} alt={pokemon.name}></img></div>       
             </div>
         </Link>
     ); 
@@ -25,9 +26,6 @@ export default PokemonEntry;
 //returns urlSplit = [https://pokeapi.co/api/v2/pokemon/ , ID]
 // img src = 'https://pokeapi.co/api/v2/pokemon/'+'urlSplit[1]'
 
-function getPokemonId(url){
-    const urlSplit = url.split("/");
-    return urlSplit[6];
-}
+
 
 //call getImage(pokemon.url)
