@@ -1,0 +1,16 @@
+.pokemonList{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+.pokemonList a {
+    text-decoration: none;
+    color: rgb(92, 92, 92);
+}
+
+.pokemonList a:hover,
+.pokemonList a:focus{
+    color: black;
+}
