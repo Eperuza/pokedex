@@ -41,7 +41,7 @@ function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   useEffect(()=> {
-    const pokemon = getAllPokemon("https://pokeapi.co/api/v2/pokemon/?limit=150")
+    const pokemon = getAllPokemon("https://pokeapi.co/api/v2/pokemon/?limit=151")
     async function getAllPokemon(url){
       const response = await fetch(url);
       const pokemon = await response.json(); //array of objects
