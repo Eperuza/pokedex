@@ -9,19 +9,29 @@ function PokemonDetailsLocation({pokemon}){
      async function getLocations(url){
          const response = await fetch(url);
          const locations = await response.json(); //array of objects
-         console.log(locations);
          setLocations(locations);
      }
      }, [])
+     //if locations exists 
+     
     return(
         <div>
             <h4>This pokemon can be found in the following areas:</h4>
-            {locations && locations.map(l => {
-                console.log(l.location_area.name);
-                return (<div key={l.location_area.name} className="location">{l.location_area.name}</div>)
-            })}
+            
+            {!locations && <h1>Loading....</h1>}
+            {locations && (locations.length > 0) && locations.map(l => {
+                    return (
+                        <div 
+                            key={l.location_area.name} 
+                            className="location">{l.location_area.name}
+                        </div>)
+                }
+            )}
+            {locations && (locations.length === 0) && <h2>Can not be found in the wild!</h2>}
+            
         </div>
     )
+  
 }
 
 export default PokemonDetailsLocation;

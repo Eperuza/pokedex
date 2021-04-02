@@ -1,7 +1,6 @@
 import '../CSS/PokemonDetailsInfo.css';
 import PokemonDetailsAbilities from './PokemonDetailsAbilities';
 import { Link, Route, Switch } from 'react-router-dom'
-import { useEffect, useState} from 'react';
 import PokemonDetailsLocation from './PokemonDetailsLocation';
 
 function PokemonDetailsInfo ({pokemon, id}){

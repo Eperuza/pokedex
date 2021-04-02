@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import getPokemonId from '../utils/GetPokemonId.js'
 
 function PokemonEntry({pokemon}){
+    // console.log("Pokemon.name", pokemon.name)
     const pokemonName = pokemon.name.slice(0,1).toUpperCase() + pokemon.name.slice(1);
     const pokeId = getPokemonId(pokemon.url)
     return(
