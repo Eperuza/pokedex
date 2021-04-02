@@ -20,15 +20,13 @@ const PokemonDetails = ({match, pokemon}) => {
     const imgSrc = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${match.params.id}.svg`
     return (
         <div className="container">
-            <div>
+            <div class="head">
                 <h1>{pokemonName}</h1>
-                <h2>ID: {match.params.id}</h2>
+                <h2>Number: {match.params.id}</h2>
             </div>
-            <div className="pokeInfo">
-                <div className="pokeImage"><img src={imgSrc} alt={pokemon.name} width="250px" height="250px" /> </div>
-                <div>
-                    {state && <PokemonDetailsInfo pokemon={state}/>}
-                </div>
+            <div className="pokeImage"><img src={imgSrc} alt={pokemon.name} width="200px" height="200px" /> </div>
+            <div className="pokeDetails">
+                {state && <PokemonDetailsInfo pokemon={state}/>}
             </div>
             {/*console.log("The state in pokemon details: ", state)*/}
         </div>

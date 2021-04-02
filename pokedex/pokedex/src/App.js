@@ -6,7 +6,7 @@ import PokemonDetails from './Components/PokemonDetails'
 import getPokemonId from './utils/GetPokemonId.js'
 
 //[ DONE ] Home page (list all pokemon first 150 w/ picture)
-//[ ] Click on Pokemon to view additional info path is /pokemon/bulbasaur/ goes to abilities
+//[ DONE] Click on Pokemon to view additional info path is /pokemon/bulbasaur/ goes to abilities
 //[ ] view info - abilities button - presented with a panel that defaults with their abilities
 //[ ] view info - environment button - change panel to abilities.
 //[ ] About page - read info about the team that developed app

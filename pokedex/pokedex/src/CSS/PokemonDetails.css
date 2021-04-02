@@ -7,3 +7,37 @@
     background-color: gray;
 }
 
+.container{
+    
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 0.5fr 2fr 1fr;
+    border: solid black 1px;
+    margin: 2%;
+    background-color: gray;
+      
+}
+
+.container .head{
+    grid-column: 1/3;
+    grid-row: 1/2;
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 2px;
+    
+    
+}
+.container .pokeImage{
+    grid-column: 1/2;
+    grid-row: 2/3;
+    margin-left: auto;
+    margin-right: auto;
+}
+.container .pokeDetails{
+    grid-column: 2/3;
+    grid-row: 2/4;
+    border: solid black 1px;
+    margin-right: 10%;
+    margin-bottom: 10px;
+    background-color: white;
+}
