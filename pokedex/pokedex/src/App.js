@@ -56,8 +56,9 @@ function App() {
       <main>
         <Switch>
           <Route exact path="/">
-            {!state.pokemonList && "Loading..."}
-            {state.pokemonList && <PokemonList pokemon={state.pokemonList} />}
+            {state.pokemonList 
+                ? <PokemonList pokemon={state.pokemonList} /> 
+                : <h1>Loading...</h1>}
           </Route>
           <Route 
             path="/pokemon/:id" 
@@ -65,7 +66,7 @@ function App() {
               ({match})=>(
                 <PokemonDetails 
                   match={match} 
-                  pokemon={state.pokemonList.find((poke)=>getPokemonId(poke.url) === match.params.id)}
+                  // pokemon={state.pokemonList.find((poke)=>getPokemonId(poke.url) === match.params.id)}
                 />
               )
             }>

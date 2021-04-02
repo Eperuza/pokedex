@@ -3,10 +3,10 @@ import getPokemonId from '../utils/GetPokemonId.js'
 import PokemonDetailsInfo from './PokemonDetailsInfo.js';
 import '../CSS/PokemonDetails.css'
 
-const PokemonDetails = ({match, pokemon}) => {
+const PokemonDetails = ({match}) => {
 
     const [state, setState] = useState(null);
-    const pokemonName = pokemon.name.slice(0,1).toUpperCase() + pokemon.name.slice(1);
+    const pokemonName = state && state.name.slice(0,1).toUpperCase() + state.name.slice(1);
 
     useEffect(() => {
         const pokeInfo = getPokemonInfo(`https://pokeapi.co/api/v2/pokemon/${match.params.id}/`)
@@ -15,18 +15,18 @@ const PokemonDetails = ({match, pokemon}) => {
             const pokeInfo = await response.json();
             setState(pokeInfo);  
     }}, 
-    [])
+    [match])
    
     const imgSrc = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${match.params.id}.svg`
     return (
         <div className="container">
-            <div class="head">
-                <h1>{pokemonName}</h1>
+            <div className="head">
+                <h1>{state && pokemonName}</h1>
                 <h2>Number: {match.params.id}</h2>
             </div>
-            <div className="pokeImage"><img src={imgSrc} alt={pokemon.name} width="200px" height="200px" /> </div>
+            <div className="pokeImage"><img src={imgSrc} alt={state ? state.name : "pokemon"} width="200px" height="200px" /> </div>
             <div className="pokeDetails">
-                {state && <PokemonDetailsInfo pokemon={state}/>}
+                {state && <PokemonDetailsInfo pokemon={state} id={match.params.id}/>}
             </div>
             {/*console.log("The state in pokemon details: ", state)*/}
         </div>

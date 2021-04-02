@@ -2,10 +2,9 @@ import PokemonEntry from './PokemonEntry'
 import '../CSS/PokemonList.css';
 
 function PokemonList ({pokemon}){
-    
     return(
         <div className="pokemonList">
-            {pokemon.map((p)=>(<PokemonEntry pokemon={p}/>))}
+            {pokemon.map((p)=>(<PokemonEntry key={p.name} pokemon={p}/>))}
         </div>
     )
 }
