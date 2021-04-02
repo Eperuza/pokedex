@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import getPokemonId from '../utils/GetPokemonId.js'
 import PokemonDetailsInfo from './PokemonDetailsInfo.js';
+import '../CSS/PokemonDetails.css'
 
 const PokemonDetails = ({match, pokemon}) => {
 
@@ -18,14 +19,16 @@ const PokemonDetails = ({match, pokemon}) => {
    
     const imgSrc = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${match.params.id}.svg`
     return (
-        <div>
-            <h1>{pokemonName}</h1>
-            <h2>ID: {match.params.id}</h2>
+        <div className="container">
             <div>
-                <span><img src={imgSrc} alt={pokemon.name} width="250px" height="250px" /> </span>
-                <span>
+                <h1>{pokemonName}</h1>
+                <h2>ID: {match.params.id}</h2>
+            </div>
+            <div className="pokeInfo">
+                <div className="pokeImage"><img src={imgSrc} alt={pokemon.name} width="250px" height="250px" /> </div>
+                <div>
                     {state && <PokemonDetailsInfo pokemon={state}/>}
-                </span>
+                </div>
             </div>
             {/*console.log("The state in pokemon details: ", state)*/}
         </div>

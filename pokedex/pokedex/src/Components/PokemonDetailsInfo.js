@@ -1,10 +1,14 @@
+import '../CSS/PokemonDetailsInfo.css';
+
 function PokemonDetailsInfo ({pokemon}){
     /*console.log("POKEMON PASSED to detailsinfo: ", pokemon);
     console.log("TYPES in detailsinfo: ", pokemon.types);
     */
     return(
         <div className="pokeInfo">
-            <div className="staticInfo">Type: 
+            
+            <div className="staticInfo">
+                <div className="pokemonType">Type:</div>
                 {
                     pokemon.types.map(t => {
                         //console.log(t.type.name);

@@ -1,0 +1,9 @@
+.pokeInfo{
+    padding: 10px;
+    background-color: white;
+    
+}
+.pokeInfo .pokeImage{
+    background-color: gray;
+}
+

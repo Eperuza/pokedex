@@ -1,0 +1,13 @@
+.staticInfo{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    
+}
+
+.pokemonType{
+    padding: 5px;
+}
+
+
