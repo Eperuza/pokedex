@@ -1,5 +1,5 @@
 import { useEffect, useReducer } from 'react';
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route, Link } from 'react-router-dom'
 import './CSS/App.css';
 import PokemonList from './Components/PokemonList'
 import PokemonDetails from './Components/PokemonDetails'
@@ -49,7 +49,9 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <Link to = '/'>
         <h1>Pokedex&trade;</h1>
+        </Link>
       </header>
       <main>
         <Switch>

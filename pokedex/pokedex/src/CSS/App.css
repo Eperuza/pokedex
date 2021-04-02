@@ -2,9 +2,6 @@ body {
   background-color: #fff;
 }
 
-.App {
-  text-align: center;
-}
 
 
 .App-header {
@@ -18,6 +15,10 @@ body {
   color: white;
 }
 
+.App-header a {
+  text-decoration: none;
+  color: white;
+}
 .App-link {
   color: #61dafb;
 }

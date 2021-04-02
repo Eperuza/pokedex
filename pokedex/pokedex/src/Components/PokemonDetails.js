@@ -3,7 +3,9 @@ import getPokemonId from '../utils/GetPokemonId.js'
 import PokemonDetailsInfo from './PokemonDetailsInfo.js';
 
 const PokemonDetails = ({match, pokemon}) => {
-    const [state, setState] = useState({});
+
+    const [state, setState] = useState(null);
+    const pokemonName = pokemon.name.slice(0,1).toUpperCase() + pokemon.name.slice(1);
 
     useEffect(() => {
         const pokeInfo = getPokemonInfo(`https://pokeapi.co/api/v2/pokemon/${match.params.id}/`)
@@ -17,18 +19,19 @@ const PokemonDetails = ({match, pokemon}) => {
     const imgSrc = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${match.params.id}.svg`
     return (
         <div>
-            <h1>{pokemon.name}</h1>
+            <h1>{pokemonName}</h1>
+            <h2>ID: {match.params.id}</h2>
             <div>
                 <span><img src={imgSrc} alt={pokemon.name} width="250px" height="250px" /> </span>
                 <span>
                     {state && <PokemonDetailsInfo pokemon={state}/>}
                 </span>
             </div>
-            {match.params.id} pokemon details
+            {/*console.log("The state in pokemon details: ", state)*/}
         </div>
     )
 }
-//https://pokeapi.co/api/v2/pokemon/${match.params.id}/
+
 
 export default PokemonDetails
 

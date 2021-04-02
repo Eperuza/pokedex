@@ -5,11 +5,10 @@
     padding: .5em .6em;
     justify-content: center;
     box-shadow: 0 0 5px 0 rgb(117, 113, 113);
+    text-align: center;
     
 }
-.pokemonEntry a{
-    text-decoration: none;
-}
+
 
 .pokemonEntry:hover {
     box-shadow: 0 0 10px 0 rgb(33, 110, 253);
