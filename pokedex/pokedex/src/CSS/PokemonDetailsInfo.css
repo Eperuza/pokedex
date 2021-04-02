@@ -25,4 +25,10 @@
     padding: 7px;
 }
 
+.buttonBar a:hover{
+    box-shadow: 0 0 10px 0 rgb(33, 110, 253);
+    cursor: pointer;
+}
+
+
 
